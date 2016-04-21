@@ -14,6 +14,36 @@
 		56593E1F1CB4B1D400BCB076 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56593E1D1CB4B1D400BCB076 /* LaunchScreen.storyboard */; };
 		56593E2A1CB4B1D400BCB076 /* HestiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E291CB4B1D400BCB076 /* HestiaTests.swift */; };
 		56593E351CB4B1D400BCB076 /* HestiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E341CB4B1D400BCB076 /* HestiaUITests.swift */; };
+		56593E441CB4B29C00BCB076 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56593E431CB4B29C00BCB076 /* CloudKit.framework */; };
+		56593E461CB4B89D00BCB076 /* SessionRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E451CB4B89D00BCB076 /* SessionRequester.swift */; };
+		56593E471CB4B89D00BCB076 /* SessionRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E451CB4B89D00BCB076 /* SessionRequester.swift */; };
+		56593E481CB4B89D00BCB076 /* SessionRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E451CB4B89D00BCB076 /* SessionRequester.swift */; };
+		56593E4A1CB4DE5F00BCB076 /* PinterestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E491CB4DE5F00BCB076 /* PinterestLoginViewController.swift */; };
+		56593E4B1CB4DE5F00BCB076 /* PinterestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E491CB4DE5F00BCB076 /* PinterestLoginViewController.swift */; };
+		56593E4C1CB4DE5F00BCB076 /* PinterestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E491CB4DE5F00BCB076 /* PinterestLoginViewController.swift */; };
+		56593E4F1CB62A7000BCB076 /* PinterestSessionRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E4E1CB62A7000BCB076 /* PinterestSessionRequester.swift */; };
+		56593E501CB62A7000BCB076 /* PinterestSessionRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E4E1CB62A7000BCB076 /* PinterestSessionRequester.swift */; };
+		56593E511CB62A7000BCB076 /* PinterestSessionRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E4E1CB62A7000BCB076 /* PinterestSessionRequester.swift */; };
+		56593E551CB775D200BCB076 /* PantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E531CB775D200BCB076 /* PantryViewController.swift */; };
+		56593E561CB775D200BCB076 /* PantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E531CB775D200BCB076 /* PantryViewController.swift */; };
+		56593E941CBE96B400BCB076 /* PantryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E931CBE96B400BCB076 /* PantryTableViewController.swift */; };
+		56593E951CBE96B400BCB076 /* PantryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E931CBE96B400BCB076 /* PantryTableViewController.swift */; };
+		56593E961CBE96B400BCB076 /* PantryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E931CBE96B400BCB076 /* PantryTableViewController.swift */; };
+		56593E981CBE96D700BCB076 /* PantryItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E971CBE96D700BCB076 /* PantryItemDetailViewController.swift */; };
+		56593E991CBE96D700BCB076 /* PantryItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E971CBE96D700BCB076 /* PantryItemDetailViewController.swift */; };
+		56593E9A1CBE96D700BCB076 /* PantryItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E971CBE96D700BCB076 /* PantryItemDetailViewController.swift */; };
+		56593E9D1CC0B56A00BCB076 /* DataRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E9C1CC0B56A00BCB076 /* DataRequestManager.swift */; };
+		56593E9E1CC0B56A00BCB076 /* DataRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E9C1CC0B56A00BCB076 /* DataRequestManager.swift */; };
+		56593E9F1CC0B56A00BCB076 /* DataRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E9C1CC0B56A00BCB076 /* DataRequestManager.swift */; };
+		56593EA21CC0BB7400BCB076 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593EA11CC0BB7400BCB076 /* Recipe.swift */; };
+		56593EA31CC0BB7400BCB076 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593EA11CC0BB7400BCB076 /* Recipe.swift */; };
+		56593EA41CC0BB7400BCB076 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593EA11CC0BB7400BCB076 /* Recipe.swift */; };
+		56593EA61CC4680300BCB076 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593EA51CC4680300BCB076 /* Ingredient.swift */; };
+		56593EA71CC4680300BCB076 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593EA51CC4680300BCB076 /* Ingredient.swift */; };
+		56593EA81CC4680300BCB076 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593EA51CC4680300BCB076 /* Ingredient.swift */; };
+		56593EAA1CC46E3E00BCB076 /* RecipeRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593EA91CC46E3E00BCB076 /* RecipeRequestManager.swift */; };
+		56593EAB1CC46E3E00BCB076 /* RecipeRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593EA91CC46E3E00BCB076 /* RecipeRequestManager.swift */; };
+		56593EAC1CC46E3E00BCB076 /* RecipeRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593EA91CC46E3E00BCB076 /* RecipeRequestManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +77,18 @@
 		56593E301CB4B1D400BCB076 /* HestiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HestiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56593E341CB4B1D400BCB076 /* HestiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HestiaUITests.swift; sourceTree = "<group>"; };
 		56593E361CB4B1D400BCB076 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56593E421CB4B22000BCB076 /* Hestia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Hestia.entitlements; sourceTree = "<group>"; };
+		56593E431CB4B29C00BCB076 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		56593E451CB4B89D00BCB076 /* SessionRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionRequester.swift; sourceTree = "<group>"; };
+		56593E491CB4DE5F00BCB076 /* PinterestLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLoginViewController.swift; sourceTree = "<group>"; };
+		56593E4E1CB62A7000BCB076 /* PinterestSessionRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestSessionRequester.swift; sourceTree = "<group>"; };
+		56593E531CB775D200BCB076 /* PantryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryViewController.swift; sourceTree = "<group>"; };
+		56593E931CBE96B400BCB076 /* PantryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryTableViewController.swift; sourceTree = "<group>"; };
+		56593E971CBE96D700BCB076 /* PantryItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryItemDetailViewController.swift; sourceTree = "<group>"; };
+		56593E9C1CC0B56A00BCB076 /* DataRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRequestManager.swift; sourceTree = "<group>"; };
+		56593EA11CC0BB7400BCB076 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		56593EA51CC4680300BCB076 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		56593EA91CC46E3E00BCB076 /* RecipeRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeRequestManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56593E441CB4B29C00BCB076 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +120,7 @@
 		56593E081CB4B1D300BCB076 = {
 			isa = PBXGroup;
 			children = (
+				56593E431CB4B29C00BCB076 /* CloudKit.framework */,
 				56593E131CB4B1D400BCB076 /* Hestia */,
 				56593E281CB4B1D400BCB076 /* HestiaTests */,
 				56593E331CB4B1D400BCB076 /* HestiaUITests */,
@@ -97,12 +141,17 @@
 		56593E131CB4B1D400BCB076 /* Hestia */ = {
 			isa = PBXGroup;
 			children = (
+				56593E9B1CC0B52700BCB076 /* Data */,
+				56593E521CB775B700BCB076 /* ViewControllers */,
+				56593E4D1CB62A4E00BCB076 /* Utilities */,
+				56593E421CB4B22000BCB076 /* Hestia.entitlements */,
 				56593E141CB4B1D400BCB076 /* AppDelegate.swift */,
 				56593E161CB4B1D400BCB076 /* ViewController.swift */,
 				56593E181CB4B1D400BCB076 /* Main.storyboard */,
 				56593E1B1CB4B1D400BCB076 /* Assets.xcassets */,
 				56593E1D1CB4B1D400BCB076 /* LaunchScreen.storyboard */,
 				56593E201CB4B1D400BCB076 /* Info.plist */,
+				56593E491CB4DE5F00BCB076 /* PinterestLoginViewController.swift */,
 			);
 			path = Hestia;
 			sourceTree = "<group>";
@@ -123,6 +172,44 @@
 				56593E361CB4B1D400BCB076 /* Info.plist */,
 			);
 			path = HestiaUITests;
+			sourceTree = "<group>";
+		};
+		56593E4D1CB62A4E00BCB076 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				56593E451CB4B89D00BCB076 /* SessionRequester.swift */,
+				56593E4E1CB62A7000BCB076 /* PinterestSessionRequester.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		56593E521CB775B700BCB076 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				56593E531CB775D200BCB076 /* PantryViewController.swift */,
+				56593E931CBE96B400BCB076 /* PantryTableViewController.swift */,
+				56593E971CBE96D700BCB076 /* PantryItemDetailViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		56593E9B1CC0B52700BCB076 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				56593EA01CC0BB4400BCB076 /* Model */,
+				56593E9C1CC0B56A00BCB076 /* DataRequestManager.swift */,
+				56593EA91CC46E3E00BCB076 /* RecipeRequestManager.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		56593EA01CC0BB4400BCB076 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56593EA11CC0BB7400BCB076 /* Recipe.swift */,
+				56593EA51CC4680300BCB076 /* Ingredient.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +280,12 @@
 				TargetAttributes = {
 					56593E101CB4B1D300BCB076 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 52UN9P9E5H;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					56593E241CB4B1D400BCB076 = {
 						CreatedOnToolsVersion = 7.3;
@@ -256,8 +349,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56593E4F1CB62A7000BCB076 /* PinterestSessionRequester.swift in Sources */,
+				56593E9D1CC0B56A00BCB076 /* DataRequestManager.swift in Sources */,
+				56593EA61CC4680300BCB076 /* Ingredient.swift in Sources */,
 				56593E171CB4B1D400BCB076 /* ViewController.swift in Sources */,
 				56593E151CB4B1D400BCB076 /* AppDelegate.swift in Sources */,
+				56593E461CB4B89D00BCB076 /* SessionRequester.swift in Sources */,
+				56593E4A1CB4DE5F00BCB076 /* PinterestLoginViewController.swift in Sources */,
+				56593EA21CC0BB7400BCB076 /* Recipe.swift in Sources */,
+				56593EAA1CC46E3E00BCB076 /* RecipeRequestManager.swift in Sources */,
+				56593E941CBE96B400BCB076 /* PantryTableViewController.swift in Sources */,
+				56593E981CBE96D700BCB076 /* PantryItemDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +367,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56593E501CB62A7000BCB076 /* PinterestSessionRequester.swift in Sources */,
+				56593E9E1CC0B56A00BCB076 /* DataRequestManager.swift in Sources */,
+				56593EA71CC4680300BCB076 /* Ingredient.swift in Sources */,
 				56593E2A1CB4B1D400BCB076 /* HestiaTests.swift in Sources */,
+				56593E4B1CB4DE5F00BCB076 /* PinterestLoginViewController.swift in Sources */,
+				56593E471CB4B89D00BCB076 /* SessionRequester.swift in Sources */,
+				56593E551CB775D200BCB076 /* PantryViewController.swift in Sources */,
+				56593EA31CC0BB7400BCB076 /* Recipe.swift in Sources */,
+				56593EAB1CC46E3E00BCB076 /* RecipeRequestManager.swift in Sources */,
+				56593E951CBE96B400BCB076 /* PantryTableViewController.swift in Sources */,
+				56593E991CBE96D700BCB076 /* PantryItemDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +385,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56593E511CB62A7000BCB076 /* PinterestSessionRequester.swift in Sources */,
+				56593E9F1CC0B56A00BCB076 /* DataRequestManager.swift in Sources */,
+				56593EA81CC4680300BCB076 /* Ingredient.swift in Sources */,
 				56593E351CB4B1D400BCB076 /* HestiaUITests.swift in Sources */,
+				56593E4C1CB4DE5F00BCB076 /* PinterestLoginViewController.swift in Sources */,
+				56593E481CB4B89D00BCB076 /* SessionRequester.swift in Sources */,
+				56593E561CB775D200BCB076 /* PantryViewController.swift in Sources */,
+				56593EA41CC0BB7400BCB076 /* Recipe.swift in Sources */,
+				56593EAC1CC46E3E00BCB076 /* RecipeRequestManager.swift in Sources */,
+				56593E961CBE96B400BCB076 /* PantryTableViewController.swift in Sources */,
+				56593E9A1CBE96D700BCB076 /* PantryItemDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hestia/Hestia.entitlements;
 				INFOPLIST_FILE = Hestia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hiro.Hestia;
@@ -412,6 +535,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hestia/Hestia.entitlements;
 				INFOPLIST_FILE = Hestia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hiro.Hestia;

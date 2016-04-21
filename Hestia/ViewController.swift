@@ -8,18 +8,32 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SessionRequesterDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let requester = PinterestSessionRequester()
+        requester.delegate = self
+        
+        requester.login()
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func sessionRequester(session: SessionRequester, didHaveError error: NSError) {
+        print("HUH..")
     }
-
+    
+    func sessionRequester(session: SessionRequester, didReceiveData data: NSData?, response: NSURLResponse?) {
+        do {
+            if let newData = data {
+                let url = NSURL(dataRepresentation: newData, relativeToURL: nil)
+                print("I GOT DATA! \(url)")
+            }
+        } catch let err{
+            print("There was an error...\(err)")
+        }
+        
+    }
 
 }
 
