@@ -11,7 +11,7 @@ import CloudKit
 
 class PantryTableViewController: UITableViewController, DataRequestManagerDelegate {
     var companionViewController : PantryItemDetailViewController?
-    var requestManager : DataRequestManager = DataRequestManager()
+    var requestManager : PantryRequestManager = PantryRequestManager()
     var recipes : [Recipe] = []
     
     override func viewDidLoad() {
@@ -36,10 +36,12 @@ class PantryTableViewController: UITableViewController, DataRequestManagerDelega
         
     }
     
-    
-    
     func dataRequestManager(manager: DataRequestManager, didReceiveError error: NSError, forQuery query: CKQuery) {
         print("Got an error... \(error)")
+    }
+    
+    func dataRequestManager(manager: DataRequestManager, didReceiveSaveError error: NSError) {
+        print("Got a save error... \(error)")
     }
 
     // MARK: - Table view data source

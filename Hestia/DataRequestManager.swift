@@ -14,6 +14,7 @@ let IngredientType = "Ingredient"
 
 protocol DataRequestManagerDelegate {
     func dataRequestManager(manager : DataRequestManager, didReceiveError error : NSError, forQuery query : CKQuery)
+    func dataRequestManager(manager : DataRequestManager, didReceiveSaveError error : NSError)
     func dataRequestManager(manager : DataRequestManager, didReceiveResults results : [AnyObject], forQuery query: CKQuery)
 }
 
@@ -38,51 +39,22 @@ class DataRequestManager: NSObject {
         self.delegate = delegate as? DataRequestManagerDelegate
     }
     
-    func fetch(recordType : String, withPredicate predicate : NSPredicate) {
+    //MARK: - GET
+    func fetch(recordType : String, withPredicate predicate : NSPredicate, completion : ([CKRecord]?, CKQuery, NSError?) -> Void) {
         let query = CKQuery(recordType: RecipeType, predicate: predicate)
         
         publicDB.performQuery(query, inZoneWithID: nil) { (results, err) in
-            if let error = err {
-                self.delegate?.dataRequestManager(self, didReceiveError: error, forQuery: query)
-            }
-            else {
-                let queryResults = self.recipesFromRecords(results)
-                self.delegate?.dataRequestManager(self, didReceiveResults: queryResults, forQuery: query)
-            }
+            completion(results, query, err)
         }
     }
-    
-    func fetchAll(recordType: String) {
-        fetch(recordType, withPredicate: NSPredicate(value: true))
+    func fetchAll(recordType: String, completion : ([CKRecord]?, CKQuery, NSError?) -> Void) {
+        fetch(recordType, withPredicate: NSPredicate(value: true), completion: completion)
     }
     
-    //MARK: - Ingredients
-    func getIngredient(named : String) {
-        let namedPredicate = NSPredicate(format: "name LIKE %@", named)
-        let query = CKQuery(recordType: IngredientType, predicate: namedPredicate)
-        
-        publicDB.performQuery(query, inZoneWithID: nil) { (results, err) in
+    func save(record : CKRecord, completion : (CKRecord?, NSError?) -> Void) {
+        publicDB.saveRecord(record) { (record, err) -> Void in
             if let error = err {
-                self.delegate?.dataRequestManager(self, didReceiveError: error, forQuery: query)
-            }
-            else {
-                let ingredients = self.recipesFromRecords(results)
-                self.delegate?.dataRequestManager(self, didReceiveResults: ingredients, forQuery: query)
-            }
-        }
-    }
-    
-    func getAllIngredients() {
-        let recipePredicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: IngredientType, predicate: recipePredicate)
-        
-        publicDB.performQuery(query, inZoneWithID: nil) { (results, err) in
-            if let error = err {
-                self.delegate?.dataRequestManager(self, didReceiveError: error, forQuery: query)
-            }
-            else {
-                let ingredients = self.recipesFromRecords(results)
-                self.delegate?.dataRequestManager(self, didReceiveResults: ingredients, forQuery: query)
+                self.delegate?.dataRequestManager(self, didReceiveSaveError: error)
             }
         }
     }

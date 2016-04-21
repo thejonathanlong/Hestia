@@ -2,7 +2,7 @@
 //  Recipe.swift
 //  Hestia
 //
-//  Created by Jonathan Long on 4/14/16.
+//  Created by Jonathan Long on 4/20/16.
 //  Copyright © 2016 Hiro. All rights reserved.
 //
 
@@ -15,24 +15,21 @@ let RECIPE_NAME_KEY = "name"
 let RECIPE_SOURCE_KEY = "source"
 let RECIPE_PHOTO_KEY = "photo"
 
-class Recipe: NSObject {
-    var record : CKRecord!
-    weak var database : CKDatabase!
-    
-    //MARK: - Properties
-    var name : String
-    var source : String?
-    var instructions : String
-    
-    //MARK: - Initializers
-    init(record: CKRecord, database : CKDatabase) {
-        self.database = database
-        self.record = record
-        name = record.valueForKey(RECIPE_NAME_KEY) as! String
-        source = record.valueForKey(RECIPE_SOURCE_KEY) as? String
-        instructions = record.valueForKey(RECIPE_INSTRUCTIONS_KEY) as! String
-        super.init()
-    }
-    
-    
+class Recipe: PantryObject {
+	
+	//MARK: - Properties
+	var name : String
+	var source : String?
+	var instructions : String
+	
+	//MARK: - Initializers
+	init(record: CKRecord, database : CKDatabase) {
+		name = record.valueForKey(RECIPE_NAME_KEY) as! String
+		source = record.valueForKey(RECIPE_SOURCE_KEY) as? String
+		instructions = record.valueForKey(RECIPE_INSTRUCTIONS_KEY) as! String
+		super.init()
+		self.database = database
+		self.record = record
+	}
+
 }
