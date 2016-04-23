@@ -23,13 +23,11 @@ class Recipe: PantryObject {
 	var instructions : String
 	
 	//MARK: - Initializers
-	init(record: CKRecord, database : CKDatabase) {
+	override init(record: CKRecord, database : CKDatabase) {
 		name = record.valueForKey(RECIPE_NAME_KEY) as! String
 		source = record.valueForKey(RECIPE_SOURCE_KEY) as? String
 		instructions = record.valueForKey(RECIPE_INSTRUCTIONS_KEY) as! String
 		super.init()
-		self.database = database
-		self.record = record
 	}
 
 }

@@ -24,15 +24,12 @@ class Ingredient: PantryObject {
 	//    var photo
 	
 	//MARK: - Initializers
-	init(record: CKRecord, database : CKDatabase) {
+	override init(record: CKRecord, database : CKDatabase) {
 		name = record[INGREDIENT_NAME_KEY] as! String
 		measurement = record[INGREDIENT_MEASUREMENT_KEY] as! String
 		if let recordTotal = record[INGREDIENT_TOTAL_KEY] as? Double {
 			total = recordTotal
 		}
-		super.init()
-		self.database = database
-		self.record = record
-		
+		super.init(record : record, database : database)
 	}
 }

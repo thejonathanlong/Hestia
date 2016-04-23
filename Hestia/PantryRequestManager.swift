@@ -14,25 +14,13 @@ class PantryRequestManager: DataRequestManager {
     func getRecipe(named : String) {
         let recipePredicate = NSPredicate(format: "name LIKE %@", named)
         fetch(RecipeType, withPredicate: recipePredicate) {[unowned self] (results, query, err) -> Void in
-            if let error = err {
-                self.delegate?.dataRequestManager(self, didReceiveError: error, forQuery: query)
-            }
-            else {
-                let recipes = self.recipesFromRecords(results)
-                self.delegate?.dataRequestManager(self, didReceiveResults: recipes, forQuery: query)
-            }
-        }
+			self.didReceive(results, from: query, with: err)
+		}
     }
     
     func getAllRecipes() {
         fetchAll(RecipeType) {[unowned self] (results, query, err) -> Void in
-            if let error = err {
-                self.delegate?.dataRequestManager(self, didReceiveError: error, forQuery: query)
-            }
-            else {
-                let recipes = self.recipesFromRecords(results)
-                self.delegate?.dataRequestManager(self, didReceiveResults: recipes, forQuery: query)
-            }
+			self.didReceive(results, from: query, with: err)
         }
     }
     
@@ -40,52 +28,38 @@ class PantryRequestManager: DataRequestManager {
     func getIngredient(named : String) {
         let namedPredicate = NSPredicate(format: "name LIKE %@", named)
         fetch(IngredientType, withPredicate: namedPredicate) {[unowned self] (results, query, err) -> Void in
-            if let error = err {
-                self.delegate?.dataRequestManager(self, didReceiveError: error, forQuery: query)
-            }
-            else {
-                let ingredients = self.ingredientsFromRecords(results)
-                self.delegate?.dataRequestManager(self, didReceiveResults: ingredients, forQuery: query)
-            }
+			self.didReceive(results, from: query, with: err)
         }
     }
     
     func getAllIngredients() {
-        fetchAll(IngredientType) {[unowned self] (results, query, err) -> Void in
-            if let error = err {
-                self.delegate?.dataRequestManager(self, didReceiveError: error, forQuery: query)
-            }
-            else {
-                let ingredients = self.ingredientsFromRecords(results)
-                self.delegate?.dataRequestManager(self, didReceiveResults: ingredients, forQuery: query)
-            }
-        }
+		fetchAll(IngredientType) { (results, query, err) in
+			self.didReceive(results, from: query, with: err)
+		}
     }
     
     //MARK: - Private Interface
-    private func recipesFromRecords(records : [CKRecord]?) -> [Recipe] {
-        var recipes = [Recipe]()
-        guard let results = records else {
-            return []
-        }
-        for recipe in results {
-            let newRecipe = Recipe(record: recipe, database: self.publicDB)
-            recipes.append(newRecipe)
-        }
-        
-        return recipes
-    }
-    
-    private func ingredientsFromRecords(records : [CKRecord]?) -> [Ingredient] {
-        var ingredients = [Ingredient]()
-        guard let results = records else {
-            return []
-        }
-        for ingredient in results {
-            let newRecipe = Ingredient(record: ingredient, database: self.publicDB)
-            ingredients.append(newRecipe)
-        }
-        
-        return ingredients
-    }
+	private func didReceive(results : [CKRecord]?, from query : CKQuery, with error : NSError?) {
+		if let err = error {
+			self.delegate?.dataRequestManager(self, didReceiveError: err, forQuery: query)
+		}
+		else {
+			let ingredients = self.pantryObject(from: results)
+			self.delegate?.dataRequestManager(self, didReceiveResults: ingredients, forQuery: query)
+		}
+	}
+	
+	private func pantryObject(from records : [CKRecord]?) -> [PantryObject] {
+		var pantryObjects = [PantryObject]()
+		if let results = records {
+			for obj in results {
+				let newRecord = PantryObject(record: obj, database: self.publicDB)
+				pantryObjects.append(newRecord)
+			}
+			return pantryObjects
+		} else {
+			return []
+		}
+		
+	}
 }

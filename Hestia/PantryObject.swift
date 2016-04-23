@@ -17,8 +17,7 @@ class PantryObject: NSObject {
 		super.init()
 	}
 	
-	convenience init(database : CKDatabase, record : CKRecord) {
-		self.init()
+	init(record : CKRecord, database : CKDatabase) {
 		self.database = database
 		self.record = record
 	}
