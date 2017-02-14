@@ -22,15 +22,22 @@ import UIKit
 
 class IngredientSelectionViewController: UIViewController {
 	
-	let ingredients = ["tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe"]
+	let ingredients = ["tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe"]
 	
     override func viewDidLoad() {
 		super.viewDidLoad()
-		var count = 0.0
+//		var count = 0.0
 		var angle = 0.0
+		let spacing = 50.0
+		let step = M_PI/16; //128 steps per full circle, so lines are short.
+		var newX = 0.0
+		var newY = 0.0
 		for ingredient in ingredients {
-			let newX = exp(0.03*count) * cos(angle)
-			let newY = exp(0.03*count) * sin(angle)
+			newY = sin(angle) * spacing// + angle ;
+			newX = cos(angle) * spacing// + angle ;
+			angle += step;
+//			let newX = 10 * (exp(0.3*count) * cos(angle))
+//			let newY = exp(0.3*count) * sin(angle)
 			let button = UIButton(type: .roundedRect)
 			button.setTitle(ingredient, for: .normal)
 			button.translatesAutoresizingMaskIntoConstraints = false
@@ -38,12 +45,15 @@ class IngredientSelectionViewController: UIViewController {
 			button.widthAnchor.constraint(equalToConstant: 100).isActive = true
 			button.heightAnchor.constraint(equalToConstant: 100).isActive = true
 			//			button.centerXAnchor.constraint
+			button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: CGFloat(newX)).isActive = true
+			button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: CGFloat(newY)).isActive = true
 			button.center = CGPoint(x: self.view.center.x + CGFloat(newX), y: self.view.center.y + CGFloat(newY))
-			print("View(%f, %f)", self.view.center.x, self.view.center.y);
-			print("button(%f, %f)", self.view.center.x + CGFloat(newX), self.view.center.y + CGFloat(newY));
-			
-			count += 1
-			angle += 20.0
+//			print("View(\(self.view.center.x), \(self.view.center.y)");
+//			print("button(\(self.view.center.x + CGFloat(newX)), \(self.view.center.y + CGFloat(newY))");
+			print("new(\(newX), \(newY)) step: \(angle)")
+//			print("input(count: \(count), angle: \(angle))")
+//			count += 1.0
+//			angle += 45.0
 		}
 
         // Do any additional setup after loading the view.
