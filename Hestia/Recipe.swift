@@ -15,19 +15,24 @@ let RECIPE_NAME_KEY = "name"
 let RECIPE_SOURCE_KEY = "source"
 let RECIPE_PHOTO_KEY = "photo"
 
-class Recipe: PantryObject {
+class Recipe: HestiaObject {
+	
+	class var type : String {
+		return "Recipe"
+	}
 	
 	//MARK: - Properties
 	var name : String
 	var source : String?
 	var instructions : String
 	
+	
 	//MARK: - Initializers
 	override init(record: CKRecord, database : CKDatabase) {
-		name = record.valueForKey(RECIPE_NAME_KEY) as! String
-		source = record.valueForKey(RECIPE_SOURCE_KEY) as? String
-		instructions = record.valueForKey(RECIPE_INSTRUCTIONS_KEY) as! String
-		super.init()
+		name = record.value(forKey: RECIPE_NAME_KEY) as! String
+		source = record.value(forKey: RECIPE_SOURCE_KEY) as? String
+		instructions = record.value(forKey: RECIPE_INSTRUCTIONS_KEY) as! String
+		super.init(record: record, database: database)
 	}
 
 }

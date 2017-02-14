@@ -15,11 +15,15 @@ let INGREDIENT_NAME_KEY = "name"
 let INGREDIENT_TOTAL_KEY = "total"
 let INGREDIENT_PHOTO_KEY = "photo"
 
-class Ingredient: PantryObject {
+class Ingredient: HestiaObject {
+	class var type : String {
+		return "Ingredient"
+	}
 	//MARK: - Properties
 	var name : String
 	var total : Double = 0
 	var measurement : String
+	
 	//    var recipes
 	//    var photo
 	

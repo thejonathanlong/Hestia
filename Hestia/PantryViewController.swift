@@ -33,16 +33,16 @@ class PantryViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     // MARK: - Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier{
             switch identifier {
             case pantryListSegueIdentifier:
-                pantryItemTableViewController = segue.destinationViewController as? UITableViewController
+                pantryItemTableViewController = segue.destination as? UITableViewController
                 pantryItemTableViewController?.tableView.delegate = self
                 pantryItemTableViewController?.tableView.dataSource = self
                 break
             case possibleRecipesSegue:
-                possibleRecipesCollectionViewController = segue.destinationViewController as? UICollectionViewController
+                possibleRecipesCollectionViewController = segue.destination as? UICollectionViewController
                 possibleRecipesCollectionViewController?.collectionView?.delegate = self
                 possibleRecipesCollectionViewController?.collectionView?.dataSource = self
                 break
@@ -54,22 +54,22 @@ class PantryViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     //MARK: CollectionViewDataSource
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
     }
     
     //MARK: CollectionViewDelegate
     
     //MARK: TableViewDataSource
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
     }
     //MARK: TableViewDelegate

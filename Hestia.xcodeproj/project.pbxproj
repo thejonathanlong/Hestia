@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5624E48F1CD8650300B6EE46 /* HestiaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624E48E1CD8650300B6EE46 /* HestiaObject.swift */; };
 		56593E151CB4B1D400BCB076 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E141CB4B1D400BCB076 /* AppDelegate.swift */; };
 		56593E171CB4B1D400BCB076 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E161CB4B1D400BCB076 /* ViewController.swift */; };
 		56593E1A1CB4B1D400BCB076 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56593E181CB4B1D400BCB076 /* Main.storyboard */; };
@@ -35,8 +36,8 @@
 		56593E9D1CC0B56A00BCB076 /* DataRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E9C1CC0B56A00BCB076 /* DataRequestManager.swift */; };
 		56593E9E1CC0B56A00BCB076 /* DataRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E9C1CC0B56A00BCB076 /* DataRequestManager.swift */; };
 		56593E9F1CC0B56A00BCB076 /* DataRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E9C1CC0B56A00BCB076 /* DataRequestManager.swift */; };
+		56956F581E52C3CA0010EAA5 /* IngredientSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56956F571E52C3CA0010EAA5 /* IngredientSelectionViewController.swift */; };
 		56C3686E1CC890810082914F /* PantryRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3686D1CC890810082914F /* PantryRequestManager.swift */; };
-		56C368701CC896F20082914F /* PantryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3686F1CC896F20082914F /* PantryObject.swift */; };
 		56C368721CC8982F0082914F /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C368711CC8982F0082914F /* Ingredient.swift */; };
 		56C368741CC899C40082914F /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C368731CC899C40082914F /* Recipe.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5624E48E1CD8650300B6EE46 /* HestiaObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HestiaObject.swift; sourceTree = "<group>"; };
 		56593E111CB4B1D400BCB076 /* Hestia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hestia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56593E141CB4B1D400BCB076 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56593E161CB4B1D400BCB076 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,8 +83,8 @@
 		56593E931CBE96B400BCB076 /* PantryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryTableViewController.swift; sourceTree = "<group>"; };
 		56593E971CBE96D700BCB076 /* PantryItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryItemDetailViewController.swift; sourceTree = "<group>"; };
 		56593E9C1CC0B56A00BCB076 /* DataRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRequestManager.swift; sourceTree = "<group>"; };
+		56956F571E52C3CA0010EAA5 /* IngredientSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientSelectionViewController.swift; sourceTree = "<group>"; };
 		56C3686D1CC890810082914F /* PantryRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryRequestManager.swift; sourceTree = "<group>"; };
-		56C3686F1CC896F20082914F /* PantryObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryObject.swift; sourceTree = "<group>"; };
 		56C368711CC8982F0082914F /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		56C368731CC899C40082914F /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +187,7 @@
 				56593E531CB775D200BCB076 /* PantryViewController.swift */,
 				56593E931CBE96B400BCB076 /* PantryTableViewController.swift */,
 				56593E971CBE96D700BCB076 /* PantryItemDetailViewController.swift */,
+				56956F571E52C3CA0010EAA5 /* IngredientSelectionViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -202,7 +205,7 @@
 		56593EA01CC0BB4400BCB076 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				56C3686F1CC896F20082914F /* PantryObject.swift */,
+				5624E48E1CD8650300B6EE46 /* HestiaObject.swift */,
 				56C368711CC8982F0082914F /* Ingredient.swift */,
 				56C368731CC899C40082914F /* Recipe.swift */,
 			);
@@ -272,12 +275,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Hiro;
 				TargetAttributes = {
 					56593E101CB4B1D300BCB076 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 52UN9P9E5H;
+						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
@@ -286,10 +289,12 @@
 					};
 					56593E241CB4B1D400BCB076 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0820;
 						TestTargetID = 56593E101CB4B1D300BCB076;
 					};
 					56593E2F1CB4B1D400BCB076 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0820;
 						TestTargetID = 56593E101CB4B1D300BCB076;
 					};
 				};
@@ -348,9 +353,10 @@
 			files = (
 				56593E4F1CB62A7000BCB076 /* PinterestSessionRequester.swift in Sources */,
 				56593E9D1CC0B56A00BCB076 /* DataRequestManager.swift in Sources */,
-				56C368701CC896F20082914F /* PantryObject.swift in Sources */,
+				5624E48F1CD8650300B6EE46 /* HestiaObject.swift in Sources */,
 				56C368741CC899C40082914F /* Recipe.swift in Sources */,
 				56C3686E1CC890810082914F /* PantryRequestManager.swift in Sources */,
+				56956F581E52C3CA0010EAA5 /* IngredientSelectionViewController.swift in Sources */,
 				56593E171CB4B1D400BCB076 /* ViewController.swift in Sources */,
 				56593E151CB4B1D400BCB076 /* AppDelegate.swift in Sources */,
 				56593E461CB4B89D00BCB076 /* SessionRequester.swift in Sources */,
@@ -440,8 +446,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -486,8 +494,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -506,6 +516,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -515,12 +526,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Hestia/Hestia.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Hestia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hiro.Hestia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jlo.chefKensing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -528,12 +543,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Hestia/Hestia.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Hestia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hiro.Hestia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jlo.chefKensing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -545,6 +564,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hiro.HestiaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hestia.app/Hestia";
 			};
 			name = Debug;
@@ -557,6 +577,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hiro.HestiaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hestia.app/Hestia";
 			};
 			name = Release;
@@ -568,6 +589,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hiro.HestiaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Hestia;
 			};
 			name = Debug;
@@ -579,6 +601,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hiro.HestiaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Hestia;
 			};
 			name = Release;

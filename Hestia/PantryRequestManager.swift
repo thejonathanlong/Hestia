@@ -9,37 +9,40 @@
 import UIKit
 import CloudKit
 
+//let RecipeType = "Recipe"
+//let IngredientType = "Ingredient"
+
 class PantryRequestManager: DataRequestManager {
     //MARK: - Get Recipes
-    func getRecipe(named : String) {
+    func getRecipe(_ named : String) {
         let recipePredicate = NSPredicate(format: "name LIKE %@", named)
-        fetch(RecipeType, withPredicate: recipePredicate) {[unowned self] (results, query, err) -> Void in
+        fetch("Recipe", withPredicate: recipePredicate) {[unowned self] (results, query, err) -> Void in
 			self.didReceive(results, from: query, with: err)
 		}
     }
     
     func getAllRecipes() {
-        fetchAll(RecipeType) {[unowned self] (results, query, err) -> Void in
+        fetchAll("Recipe") {[unowned self] (results, query, err) -> Void in
 			self.didReceive(results, from: query, with: err)
         }
     }
     
     //MARK: - Get Ingredients
-    func getIngredient(named : String) {
+    func getIngredient(_ named : String) {
         let namedPredicate = NSPredicate(format: "name LIKE %@", named)
-        fetch(IngredientType, withPredicate: namedPredicate) {[unowned self] (results, query, err) -> Void in
+        fetch(Ingredient.type, withPredicate: namedPredicate) {[unowned self] (results, query, err) -> Void in
 			self.didReceive(results, from: query, with: err)
         }
     }
     
     func getAllIngredients() {
-		fetchAll(IngredientType) { (results, query, err) in
+		fetchAll(Ingredient.type) { (results, query, err) in
 			self.didReceive(results, from: query, with: err)
 		}
     }
     
     //MARK: - Private Interface
-	private func didReceive(results : [CKRecord]?, from query : CKQuery, with error : NSError?) {
+	fileprivate func didReceive(_ results : [CKRecord]?, from query : CKQuery, with error : NSError?) {
 		if let err = error {
 			self.delegate?.dataRequestManager(self, didReceiveError: err, forQuery: query)
 		}
@@ -49,11 +52,11 @@ class PantryRequestManager: DataRequestManager {
 		}
 	}
 	
-	private func pantryObject(from records : [CKRecord]?) -> [PantryObject] {
-		var pantryObjects = [PantryObject]()
+	fileprivate func pantryObject(from records : [CKRecord]?) -> [HestiaObject] {
+		var pantryObjects = [HestiaObject]()
 		if let results = records {
 			for obj in results {
-				let newRecord = PantryObject(record: obj, database: self.publicDB)
+				let newRecord = HestiaObject(record: obj, database: self.publicDB)
 				pantryObjects.append(newRecord)
 			}
 			return pantryObjects

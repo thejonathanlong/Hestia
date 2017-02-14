@@ -9,13 +9,10 @@
 import UIKit
 import CloudKit
 
-let RecipeType = "Recipe"
-let IngredientType = "Ingredient"
-
 protocol DataRequestManagerDelegate {
-    func dataRequestManager(manager : DataRequestManager, didReceiveError error : NSError, forQuery query : CKQuery)
-    func dataRequestManager(manager : DataRequestManager, didReceiveSaveError error : NSError)
-    func dataRequestManager(manager : DataRequestManager, didReceiveResults results : [AnyObject], forQuery query: CKQuery)
+    func dataRequestManager(_ manager : DataRequestManager, didReceiveError error : NSError, forQuery query : CKQuery)
+    func dataRequestManager(_ manager : DataRequestManager, didReceiveSaveError error : NSError)
+    func dataRequestManager(_ manager : DataRequestManager, didReceiveResults results : [AnyObject], forQuery query: CKQuery)
 }
 
 class DataRequestManager: NSObject {
@@ -27,7 +24,7 @@ class DataRequestManager: NSObject {
     
     //MARK: - Initializers
     override init() {
-        container = CKContainer.defaultContainer()
+        container = CKContainer.default()
         publicDB = container.publicCloudDatabase
         privateDB = container.privateCloudDatabase
         delegate = nil
@@ -40,23 +37,23 @@ class DataRequestManager: NSObject {
     }
     
     //MARK: - GET
-    func fetch(recordType : String, withPredicate predicate : NSPredicate, completion : ([CKRecord]?, CKQuery, NSError?) -> Void) {
-        let query = CKQuery(recordType: RecipeType, predicate: predicate)
+    func fetch(_ recordType : String, withPredicate predicate : NSPredicate, completion : @escaping ([CKRecord]?, CKQuery, NSError?) -> Void) {
+        let query = CKQuery(recordType: Recipe.type, predicate: predicate)
         
-        publicDB.performQuery(query, inZoneWithID: nil) { (results, err) in
-            completion(results, query, err)
+        publicDB.perform(query, inZoneWith: nil) { (results, err) in
+            completion(results, query, err as NSError?)
         }
     }
-    func fetchAll(recordType: String, completion : ([CKRecord]?, CKQuery, NSError?) -> Void) {
+    func fetchAll(_ recordType: String, completion : @escaping ([CKRecord]?, CKQuery, NSError?) -> Void) {
         fetch(recordType, withPredicate: NSPredicate(value: true), completion: completion)
     }
     
-    func save(record : CKRecord, completion : (CKRecord?, NSError?) -> Void) {
-        publicDB.saveRecord(record) { (record, err) -> Void in
+    func save(_ record : CKRecord, completion : (CKRecord?, NSError?) -> Void) {
+        publicDB.save(record, completionHandler: { (record, err) -> Void in
             if let error = err {
-                self.delegate?.dataRequestManager(self, didReceiveSaveError: error)
+                self.delegate?.dataRequestManager(self, didReceiveSaveError: error as NSError)
             }
-        }
+        }) 
     }
     
 }

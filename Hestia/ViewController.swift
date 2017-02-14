@@ -19,20 +19,15 @@ class ViewController: UIViewController, SessionRequesterDelegate {
         
     }
     
-    func sessionRequester(session: SessionRequester, didHaveError error: NSError) {
+    func sessionRequester(_ session: SessionRequester, didHaveError error: NSError) {
         print("HUH..")
     }
     
-    func sessionRequester(session: SessionRequester, didReceiveData data: NSData?, response: NSURLResponse?) {
-        do {
-            if let newData = data {
-                let url = NSURL(dataRepresentation: newData, relativeToURL: nil)
-                print("I GOT DATA! \(url)")
-            }
-        } catch let err{
-            print("There was an error...\(err)")
-        }
-        
+    func sessionRequester(_ session: SessionRequester, didReceiveData data: Data?, response: URLResponse?) {
+//		if let newData = data {
+////			let url = URL(dataRepresentation: newData, relativeToURL: nil)
+////			print("I GOT DATA! \(url)")
+//		}
     }
 
 }

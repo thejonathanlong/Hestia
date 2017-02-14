@@ -8,73 +8,73 @@
 
 import UIKit
 enum HTTPMethodType {
-    case POST
-    case PUT
-    case DELETE
-    case GET
+    case post
+    case put
+    case delete
+    case get
 }
 
 protocol SessionRequesterDelegate {
-    func sessionRequester(session : SessionRequester, didReceiveData data: NSData?, response: NSURLResponse?)
-    func sessionRequester(session : SessionRequester, didHaveError error: NSError)
+    func sessionRequester(_ session : SessionRequester, didReceiveData data: Data?, response: URLResponse?)
+    func sessionRequester(_ session : SessionRequester, didHaveError error: NSError)
 }
 
-class SessionRequester: NSObject, NSURLSessionDataDelegate {
+class SessionRequester: NSObject, URLSessionDataDelegate {
     //MARK: Private Properties
-    private var URLSession : NSURLSession?
-    private let URLDelegateQ = NSOperationQueue()
-    private var baseURL : NSURL = NSURL(string: "")!
+    fileprivate var URLSession : Foundation.URLSession?
+    fileprivate let URLDelegateQ = OperationQueue()
+    fileprivate var baseURL : URL = URL(string: "")!
     
     //MARK: Public Properties
     var delegate : SessionRequesterDelegate?
     
     override init() {
         super.init()
-        URLSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: self, delegateQueue: URLDelegateQ)
+        URLSession = Foundation.URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: URLDelegateQ)
     }
     
-    convenience init(url : NSURL) {
+    convenience init(url : URL) {
         self.init()
         baseURL = url
     }
     
     //MARK: Public
-    func performRequest(method : HTTPMethodType, endpoint : String) {
-        let requestURL = baseURL.URLByAppendingPathComponent(endpoint)
-        let request = NSMutableURLRequest(URL: requestURL)
+    func performRequest(_ method : HTTPMethodType, endpoint : String) {
+        let requestURL = baseURL.appendingPathComponent(endpoint)
+        let request = NSMutableURLRequest(url: requestURL)
         switch method {
-        case .POST:
-            request.HTTPMethod = "POST"
-        case .DELETE:
-            request.HTTPMethod = "DELETE"
-        case .GET:
-            request.HTTPMethod = "GET"
-        case .PUT:
-            request.HTTPMethod = "PUT"
+        case .post:
+            request.httpMethod = "POST"
+        case .delete:
+            request.httpMethod = "DELETE"
+        case .get:
+            request.httpMethod = "GET"
+        case .put:
+            request.httpMethod = "PUT"
         }
-        performRequest(request)
+        performRequest(request as URLRequest)
     }
     
-    func performRequest(method : HTTPMethodType, url : NSURL) {
-        let request = NSMutableURLRequest(URL: url)
+    func performRequest(_ method : HTTPMethodType, url : URL) {
+        let request = NSMutableURLRequest(url: url)
         switch method {
-        case .POST:
-            request.HTTPMethod = "POST"
-        case .DELETE:
-            request.HTTPMethod = "DELETE"
-        case .GET:
-            request.HTTPMethod = "GET"
-        case .PUT:
-            request.HTTPMethod = "PUT"
+        case .post:
+            request.httpMethod = "POST"
+        case .delete:
+            request.httpMethod = "DELETE"
+        case .get:
+            request.httpMethod = "GET"
+        case .put:
+            request.httpMethod = "PUT"
         }
-        performRequest(request)
+        performRequest(request as URLRequest)
     }
     
     //MARK: Private
-    private func performRequest(request: NSURLRequest) {
-        let dataTask = URLSession?.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+    fileprivate func performRequest(_ request: URLRequest) {
+        let dataTask = URLSession?.dataTask(with: request, completionHandler: { (data, response, error) in
             if let err = error {
-                self.delegate?.sessionRequester(self, didHaveError: err)
+                self.delegate?.sessionRequester(self, didHaveError: err as NSError)
             } else {
                 self.delegate?.sessionRequester(self, didReceiveData: data, response: response)
             }

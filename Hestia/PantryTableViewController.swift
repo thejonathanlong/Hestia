@@ -12,7 +12,7 @@ import CloudKit
 class PantryTableViewController: UITableViewController, DataRequestManagerDelegate {
     var companionViewController : PantryItemDetailViewController?
     var requestManager : PantryRequestManager = PantryRequestManager()
-    var recipes : [Recipe] = []
+    var ingredients : [Ingredient] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,41 +21,41 @@ class PantryTableViewController: UITableViewController, DataRequestManagerDelega
     }
     
     //MARK: - DataRequestManagerDelegate
-    func dataRequestManager(manager: DataRequestManager, didReceiveResults results: [AnyObject], forQuery query: CKQuery) {
+    func dataRequestManager(_ manager: DataRequestManager, didReceiveResults results: [AnyObject], forQuery query: CKQuery) {
         switch query.recordType {
-        case RecipeType:
-            recipes = results as! [Recipe]
+        case Ingredient.type:
+            ingredients = results as! [Ingredient]
             break
         default:
             print("Got an unrecognized record type?? \(query.recordType)")
         }
         
-        dispatch_async(dispatch_get_main_queue()) { 
+        DispatchQueue.main.async { 
             self.tableView.reloadData()
         }
         
     }
     
-    func dataRequestManager(manager: DataRequestManager, didReceiveError error: NSError, forQuery query: CKQuery) {
+    func dataRequestManager(_ manager: DataRequestManager, didReceiveError error: NSError, forQuery query: CKQuery) {
         print("Got an error... \(error)")
     }
     
-    func dataRequestManager(manager: DataRequestManager, didReceiveSaveError error: NSError) {
+    func dataRequestManager(_ manager: DataRequestManager, didReceiveSaveError error: NSError) {
         print("Got a save error... \(error)")
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipes.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ingredients.count
     }
     
     // MARK: - Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "ShowPantryItem" {
 //            let controller = (segue.destinationViewController as! UINavigationController).topViewController as! PantryItemDetailViewController
 //            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -64,15 +64,15 @@ class PantryTableViewController: UITableViewController, DataRequestManagerDelega
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("pantryItemTableViewCellReuseIdentifier", forIndexPath: indexPath)
-        let recipe = recipes[indexPath.row]
-        cell.textLabel?.text = recipe.name
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "pantryItemTableViewCellReuseIdentifier", for: indexPath)
+        let ingredient = ingredients[indexPath.row]
+        cell.textLabel?.text = ingredient.name
 
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let selectedMonster = self.monsters[indexPath.row]
 //        self.delegate?.monsterSelected(selectedMonster)
         
