@@ -20,7 +20,158 @@
 
 import UIKit
 
+protocol BubbleViewDataSource {
+	func numberOfBubbles(in bubbleView : BubbleView) -> Int
+	func bubble(at indexPath: IndexPath) -> Bubble
+}
+
+protocol BubbleViewDelegate {
+	func bubbleView(_ bubbleView: BubbleView, didSelectBubbleAt indexPath: IndexPath)
+}
+
+class Bubble : UIView {
+	
+}
+
+class BubbleView : UIView {
+	let containerView = UIView()
+	let PI = CGFloat(M_PI)
+	var delegate : BubbleViewDelegate?
+	var dataSource : BubbleViewDataSource?
+	var currentAreaConsumed : CGFloat = 0.0
+	var totalArea : CGFloat {
+		let radius = frame.width / 2
+		return radius * radius * PI
+	}
+	var equalAreaValue : CGFloat {
+		guard let theDataSource = dataSource else {fatalError("I need a datasource.")}
+		let numberOfBubbles = theDataSource.numberOfBubbles(in: self)
+		return totalArea/CGFloat(numberOfBubbles)
+	}
+	
+	// Mark - Initializers
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+		addSubview(containerView)
+	}
+	
+	convenience init(dataSource : BubbleViewDataSource?, delegate : BubbleViewDelegate?) {
+		self.init(frame: CGRect.zero)
+		self.delegate = delegate
+		self.dataSource = dataSource
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+		addSubview(containerView)
+	}
+	
+	// Mark: Helpers
+	func areaForBubble(at index: IndexPath) -> CGFloat {
+		let minVal = min(equalAreaValue/2, equalAreaValue - 7)
+		let maxVal = (equalAreaValue + 7) - minVal
+		return CGFloat(arc4random_uniform(UInt32(maxVal) + UInt32(minVal)))
+	}
+	
+	// Mark: Layout
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		guard let theDataSource = dataSource else { return }
+		let numberOfBubbles = theDataSource.numberOfBubbles(in: self)
+		
+		for i in stride(from: 0, to: numberOfBubbles, by: 1) {
+			let nextBubble = theDataSource.bubble(at: IndexPath(row: i, section: 0))
+			containerView.addSubview(nextBubble)
+		}
+	}
+	
+	
+	func layoutConstraints(for bubble : Bubble, at indexPath : IndexPath) -> [NSLayoutConstraint] {
+		var constraints : [NSLayoutConstraint] = []
+		
+		let radius = sqrt(areaForBubble(at: indexPath) / PI)
+		constraints.append(NSLayoutConstraint(item: bubble, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: radius * 2))
+		constraints.append(NSLayoutConstraint(item: bubble, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: radius * 2))
+		
+		//(x – h)2 + (y – k)2 = r2
+		
+		//What if we stored a bunch of blocks that represent each circle and can recall any point at anytime?
+		var centerX = self.center.x
+		var centerY = self.center.y
+		if indexPath.row == 0 {
+			constraints.append(NSLayoutConstraint(item: bubble, attribute: .centerX, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: centerX))
+			constraints.append(NSLayoutConstraint(item: bubble, attribute: .centerY, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: centerY))
+		}
+		else {
+//			centerX =
+		}
+		constraints.append(NSLayoutConstraint(item: bubble, attribute: .left, relatedBy: .equal, toItem: containerView, attribute: .left, multiplier: 1, constant: 2))
+		constraints.append(NSLayoutConstraint(item: bubble, attribute: .top, relatedBy: .equal, toItem: containerView, attribute: .top, multiplier: 1, constant: 2))
+		
+	}
+	
+}
+
+class BubbleViewController : UIViewController {
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
+	
+	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+	}
+	
+	convenience init() {
+		self.init(nibName: nil, bundle: nil)
+	}
+}
+
 class IngredientSelectionViewController: UIViewController {
+	
+	class IngredientClusterView: UIView {
+		
+		let ingredients : [String]
+		
+		override init(frame : CGRect) {
+			self.ingredients = []
+			super.init(frame: frame)
+			
+		}
+		
+		required init?(coder aDecoder: NSCoder) {
+			self.ingredients = []
+			super.init(coder: aDecoder)
+		}
+		
+		required init(ingredients : [String]) {
+			self.ingredients = ingredients
+			super.init(frame: CGRect.zero)
+		}
+		
+		func addIngredientViews() {
+			let leftAnchor = self.leftAnchor
+			let rightAnchor = self.rightAnchor
+			for ingredient in self.ingredients {
+				let ingredientView = UIView()
+				ingredientView.translatesAutoresizingMaskIntoConstraints = false
+				self.addSubview(ingredientView)
+				ingredientView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+				
+				let ingredientLabel = UILabel()
+				ingredientLabel.translatesAutoresizingMaskIntoConstraints = false
+				ingredientLabel.text = ingredient
+				ingredientView.addSubview(ingredientLabel)
+				ingredientLabel.leftAnchor.constraint(equalTo: ingredientView.leftAnchor).isActive = true
+				ingredientLabel.rightAnchor.constraint(equalTo: ingredientView.rightAnchor).isActive = true
+				ingredientLabel.topAnchor.constraint(equalTo: ingredientView.topAnchor).isActive = true
+				ingredientLabel.bottomAnchor.constraint(equalTo: ingredientView.bottomAnchor).isActive = true
+				
+				
+				
+				
+			}
+		}
+	}
 	
 	let ingredients = ["tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe","tomatoe1", "tomatoe2", "tomatoe3", "tomatoe4", "tomatoe5", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe", "tomatoe"]
 	

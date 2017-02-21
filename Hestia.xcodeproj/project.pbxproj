@@ -37,6 +37,7 @@
 		56593E9E1CC0B56A00BCB076 /* DataRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E9C1CC0B56A00BCB076 /* DataRequestManager.swift */; };
 		56593E9F1CC0B56A00BCB076 /* DataRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56593E9C1CC0B56A00BCB076 /* DataRequestManager.swift */; };
 		56956F581E52C3CA0010EAA5 /* IngredientSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56956F571E52C3CA0010EAA5 /* IngredientSelectionViewController.swift */; };
+		56956F981E5578C80010EAA5 /* IngredientSelectionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56956F971E5578C80010EAA5 /* IngredientSelectionCollectionViewController.swift */; };
 		56C3686E1CC890810082914F /* PantryRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3686D1CC890810082914F /* PantryRequestManager.swift */; };
 		56C368721CC8982F0082914F /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C368711CC8982F0082914F /* Ingredient.swift */; };
 		56C368741CC899C40082914F /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C368731CC899C40082914F /* Recipe.swift */; };
@@ -84,6 +85,7 @@
 		56593E971CBE96D700BCB076 /* PantryItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryItemDetailViewController.swift; sourceTree = "<group>"; };
 		56593E9C1CC0B56A00BCB076 /* DataRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRequestManager.swift; sourceTree = "<group>"; };
 		56956F571E52C3CA0010EAA5 /* IngredientSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientSelectionViewController.swift; sourceTree = "<group>"; };
+		56956F971E5578C80010EAA5 /* IngredientSelectionCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientSelectionCollectionViewController.swift; sourceTree = "<group>"; };
 		56C3686D1CC890810082914F /* PantryRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryRequestManager.swift; sourceTree = "<group>"; };
 		56C368711CC8982F0082914F /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		56C368731CC899C40082914F /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				56593E931CBE96B400BCB076 /* PantryTableViewController.swift */,
 				56593E971CBE96D700BCB076 /* PantryItemDetailViewController.swift */,
 				56956F571E52C3CA0010EAA5 /* IngredientSelectionViewController.swift */,
+				56956F971E5578C80010EAA5 /* IngredientSelectionCollectionViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				56C368741CC899C40082914F /* Recipe.swift in Sources */,
 				56C3686E1CC890810082914F /* PantryRequestManager.swift in Sources */,
 				56956F581E52C3CA0010EAA5 /* IngredientSelectionViewController.swift in Sources */,
+				56956F981E5578C80010EAA5 /* IngredientSelectionCollectionViewController.swift in Sources */,
 				56593E171CB4B1D400BCB076 /* ViewController.swift in Sources */,
 				56593E151CB4B1D400BCB076 /* AppDelegate.swift in Sources */,
 				56593E461CB4B89D00BCB076 /* SessionRequester.swift in Sources */,
